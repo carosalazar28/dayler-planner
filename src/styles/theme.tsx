@@ -2,6 +2,7 @@ import { ThemeProvider } from '@emotion/react'
 import { createTheme } from '@mui/material/styles'
 
 import colors from './colors'
+import typography from './typography'
 
 declare module '@mui/material/styles' {
   interface Palette {
@@ -34,7 +35,11 @@ declare module '@mui/material/styles' {
   }
 }
 
-function ThemeContainer({ children }: React.ReactNode) {
+interface Props {
+  children: React.ReactNode
+}
+
+function ThemeContainer({ children }: Props) {
   const {
     primary: PRIMARY,
     secondary: SECONDARY,
@@ -55,6 +60,19 @@ function ThemeContainer({ children }: React.ReactNode) {
         ERROR: ACTIONS.error,
       },
       neutral: COMPLEMENTARY,
+    },
+    typography: {
+      ...typography,
+      fontFamily: [
+        'Poppins',
+        'Roboto',
+        'Open Sans',
+        '"Helvetica Neue"',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
     },
   })
 
