@@ -18,11 +18,13 @@ function TemporaryDrawer() {
         },
       }}
     >
-      <List>
-        {listOfItems.map((item) => (
-          <SidebarItem key={item.id} text={item.text} Icon={item.Icon} />
-        ))}
-      </List>
+      <nav style={{ color: 'white' }}>
+        <List>
+          {listOfItems.map((item) => (
+            <SidebarItem key={item.id} text={item.text} Icon={item.Icon} />
+          ))}
+        </List>
+      </nav>
     </Drawer>
   )
 }
