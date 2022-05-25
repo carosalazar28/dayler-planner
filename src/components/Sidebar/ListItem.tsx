@@ -10,7 +10,7 @@ const SidebarItem = ({ Icon, text }: PropsItem) => {
     <ListItem>
       <ListItemButton>
         <ListItemIcon>
-          <Icon />
+          <Icon sx={{ bgcolor: (theme) => theme.palette.grey[200] }} />
         </ListItemIcon>
         <ListItemText>{text}</ListItemText>
       </ListItemButton>

@@ -6,7 +6,18 @@ import SidebarItem from './ListItem'
 
 function TemporaryDrawer() {
   return (
-    <Drawer anchor="left" open>
+    <Drawer
+      anchor="left"
+      open
+      PaperProps={{
+        sx: {
+          bgcolor: 'neutral.blueDark',
+          width: 350,
+          display: 'flex',
+          justifyContent: 'center',
+        },
+      }}
+    >
       <List>
         {listOfItems.map((item) => (
           <SidebarItem key={item.id} text={item.text} Icon={item.Icon} />
