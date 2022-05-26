@@ -6,15 +6,16 @@ import { Link } from 'react-router-dom'
 
 import { PropsItem } from '../interfaces/sidebar.intefaces'
 
-const SidebarItem = ({ Icon, text }: PropsItem) => {
+const SidebarItem = ({ Icon, text, path }: PropsItem) => {
   return (
-    <Link to="/">
-      {/* <ListItemIcon>
-        <Icon sx={{ color: (theme) => theme.palette.grey[200] }} />
-      </ListItemIcon> */}
-      {/* <ListItemText primary={text} /> */}
-      {text}
-    </Link>
+    <ListItem disablePadding>
+      <ListItemButton LinkComponent={Link} href={path}>
+        <ListItemIcon>
+          <Icon sx={{ color: (theme) => theme.palette.grey[200] }} />
+        </ListItemIcon>
+        <ListItemText primary={text} />
+      </ListItemButton>
+    </ListItem>
   )
 }
 

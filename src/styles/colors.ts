@@ -3,6 +3,7 @@ const dayler = {
     main: '#3F51B5',
     light: '##757DE8',
     dark: '#002984',
+    lighther: 'rgba(117, 125, 232, 0.4)',
   },
   secondary: {
     main: '#4FC3F7',

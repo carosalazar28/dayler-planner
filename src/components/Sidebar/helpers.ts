@@ -8,20 +8,24 @@ export default [
     id: 'home',
     text: 'Inicio',
     Icon: HomeIcon,
+    path: '/',
   },
   {
     id: 'board',
     text: 'Tablero',
     Icon: DashboardIcon,
+    path: '/board',
   },
   {
     id: 'tasks',
     text: 'Lista de tareas',
     Icon: AssignmentIcon,
+    path: '/tasks',
   },
   {
     id: 'notes',
     text: 'Notas',
     Icon: StickyNote2Icon,
+    path: '/notes',
   },
 ]
