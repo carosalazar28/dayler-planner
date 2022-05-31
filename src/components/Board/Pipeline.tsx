@@ -1,7 +1,11 @@
+import { useState, useCallback } from 'react'
+import update from 'immutability-helper'
+
 import { styled } from '@mui/material'
 
 import Item from './Item'
 import Title from './Title'
+import { Item as ItemType } from '../interfaces/Board.interfaces'
 
 const mockData = [
   {
@@ -37,12 +41,34 @@ const ContainerTask = styled('section')(({ theme }) => ({
 }))
 
 function Pipeline() {
+  const [cards, setCards] = useState(mockData)
+
+  const movePetListItem = useCallback(
+    (dragIndex: number, hoverIndex: number) => {
+      // Swap places of dragItem and hoverItem in the pets array
+      setCards((prevCards: ItemType[]) =>
+        update(prevCards, {
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, prevCards[dragIndex] as ItemType],
+          ],
+        })
+      )
+    },
+    [cards]
+  )
+
   return (
     <PipelineContainer>
       <Title status="INFO" />
       <ContainerTask>
-        {mockData.map((item) => (
-          <Item key={item.id} {...item} />
+        {cards.map((item, index) => (
+          <Item
+            key={item.id}
+            index={index}
+            {...item}
+            moveListItem={movePetListItem}
+          />
         ))}
       </ContainerTask>
     </PipelineContainer>
