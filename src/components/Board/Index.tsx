@@ -1,12 +1,7 @@
-import { Paper, Typography } from '@mui/material'
-import Container from './Container'
+import Pipeline from './Pipeline'
 
 function Board() {
-  return (
-    <>
-      <Container />
-    </>
-  )
+  return <Pipeline />
 }
 
 export default Board
