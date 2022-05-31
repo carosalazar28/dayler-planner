@@ -3,8 +3,8 @@ import update from 'immutability-helper'
 
 import { styled } from '@mui/material'
 
-import Item from './Item'
-import Title from './Title'
+import Item from './PipelineAtoms/Item'
+import Title from './PipelineAtoms/Title'
 import { Item as ItemType } from '../interfaces/Board.interfaces'
 
 const mockData = [

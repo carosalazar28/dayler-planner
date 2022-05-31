@@ -2,7 +2,7 @@ import MuiCard from '@mui/material/Card'
 import { Typography, CardContent } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-import { CardProps } from '../interfaces/Board.interfaces'
+import { CardProps } from '../../interfaces/Board.interfaces'
 
 const Card = styled(MuiCard)<CardProps>(({ theme, color }) => ({
   display: 'flex',

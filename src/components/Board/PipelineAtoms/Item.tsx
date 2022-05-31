@@ -6,7 +6,11 @@ import MuiCard from '@mui/material/Card'
 import { CardContent, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 
-import { CardProps, ItemProps, DragItem } from '../interfaces/Board.interfaces'
+import {
+  CardProps,
+  ItemProps,
+  DragItem,
+} from '../../interfaces/Board.interfaces'
 
 const Card = styled(MuiCard)<CardProps>(({ theme, color }) => ({
   borderRadius: theme.spacing(1),
