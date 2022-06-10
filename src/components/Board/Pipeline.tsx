@@ -59,19 +59,47 @@ function Pipeline() {
   )
 
   return (
-    <PipelineContainer>
-      <Title status="INFO" />
-      <ContainerTask>
-        {cards.map((item, index) => (
-          <Item
-            key={item.id}
-            index={index}
-            {...item}
-            moveListItem={movePetListItem}
-          />
-        ))}
-      </ContainerTask>
-    </PipelineContainer>
+    <section>
+      <PipelineContainer>
+        <Title status="INFO" />
+        <ContainerTask>
+          {cards.map((item, index) => (
+            <Item
+              key={item.id}
+              index={index}
+              {...item}
+              moveListItem={movePetListItem}
+            />
+          ))}
+        </ContainerTask>
+      </PipelineContainer>
+      <PipelineContainer>
+        <Title status="WARNING" />
+        <ContainerTask>
+          {cards.map((item, index) => (
+            <Item
+              key={item.id}
+              index={index}
+              {...item}
+              moveListItem={movePetListItem}
+            />
+          ))}
+        </ContainerTask>
+      </PipelineContainer>
+      <PipelineContainer>
+        <Title status="SUCCESS" />
+        <ContainerTask>
+          {cards.map((item, index) => (
+            <Item
+              key={item.id}
+              index={index}
+              {...item}
+              moveListItem={movePetListItem}
+            />
+          ))}
+        </ContainerTask>
+      </PipelineContainer>
+    </section>
   )
 }
 
