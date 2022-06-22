@@ -79,6 +79,7 @@ function Pipeline() {
               index={index}
               {...item}
               moveListItem={movePetListItem}
+              variant="INFO"
             />
           ))}
         </ContainerTask>
@@ -92,6 +93,7 @@ function Pipeline() {
               index={index}
               {...item}
               moveListItem={movePetListItem}
+              variant="WARNING"
             />
           ))}
         </ContainerTask>
@@ -105,6 +107,7 @@ function Pipeline() {
               index={index}
               {...item}
               moveListItem={movePetListItem}
+              variant="SUCCESS"
             />
           ))}
         </ContainerTask>

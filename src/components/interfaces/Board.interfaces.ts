@@ -11,6 +11,7 @@ export interface Item {
 
 export interface ItemProps extends Item {
   index: number
+  variant: string
   moveListItem: (dragIndex: number, hoverIndex: number) => void
 }
 

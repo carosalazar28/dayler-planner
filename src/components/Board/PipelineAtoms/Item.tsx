@@ -1,10 +1,12 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import type { Identifier, XYCoord } from 'dnd-core'
 import { useDrag, useDrop } from 'react-dnd'
 
 import MuiCard from '@mui/material/Card'
-import { CardContent, Typography } from '@mui/material'
+import { CardContent, IconButton, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import EditIcon from '@mui/icons-material/Edit'
+import DeleteIcon from '@mui/icons-material/Delete'
 
 import {
   CardProps,
@@ -18,10 +20,21 @@ const Card = styled(MuiCard)<CardProps>(({ theme, color }) => ({
     theme.palette.status[color as keyof typeof theme.palette.status]
   }`,
   cursor: 'pointer',
+  '& > div': {
+    display: 'flex',
+    flexDirection: 'column',
+    '& > div': {
+      alignSelf: 'flex-end',
+    },
+  },
 }))
 
-const Item = ({ body, index, moveListItem }: ItemProps) => {
+const Item = ({ body, index, moveListItem, variant = 'INFO' }: ItemProps) => {
   const ref = useRef<HTMLDivElement>(null)
+
+  const handleEdit = () => console.log('edit')
+
+  const handleDelete = () => console.log('delete')
 
   const [{ isDragging }, dragRef] = useDrag({
     type: 'item',
@@ -96,9 +109,17 @@ const Item = ({ body, index, moveListItem }: ItemProps) => {
   const dragDropRef = dragRef(dropRef(ref))
 
   return (
-    <Card color={'INFO'} ref={dragDropRef} sx={{ opacity }}>
+    <Card color={variant} ref={dragDropRef} sx={{ opacity }}>
       <CardContent>
         <Typography variant="body2">{body}</Typography>
+        <div>
+          <IconButton color="primary" onClick={handleEdit}>
+            <EditIcon />
+          </IconButton>
+          <IconButton color="primary" onClick={handleDelete}>
+            <DeleteIcon />
+          </IconButton>
+        </div>
       </CardContent>
     </Card>
   )
