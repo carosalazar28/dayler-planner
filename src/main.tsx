@@ -6,7 +6,9 @@ import App from '@/components/App/Index'
 
 import './index.css'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
+
+root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>

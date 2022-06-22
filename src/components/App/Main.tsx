@@ -2,13 +2,13 @@ import RenderRoutes from '@/routes/RenderRoutes'
 import { styled } from '@mui/material/styles'
 
 interface MainProps {
-  minWidth: number
+  minwidth: number
   open?: boolean
 }
 
 const Main = styled('main', {
   shouldForwardProp: (prop) => prop !== 'open',
-})<MainProps>(({ theme, open, minWidth }) => ({
+})<MainProps>(({ theme, open, minwidth }) => ({
   flexGrow: 1,
   padding: theme.spacing(3),
   backgroundColor: theme.palette.grey[200],
@@ -19,7 +19,7 @@ const Main = styled('main', {
     duration: theme.transitions.duration.leavingScreen,
   }),
   ...(open && {
-    marginLeft: `${minWidth}px`,
+    marginLeft: `${minwidth}px`,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
@@ -27,9 +27,9 @@ const Main = styled('main', {
   }),
 }))
 
-function MainPaper({ minWidth, open }: MainProps) {
+function MainPaper({ minwidth, open }: MainProps) {
   return (
-    <Main open={open} minWidth={minWidth}>
+    <Main open={open} minwidth={minwidth}>
       <RenderRoutes />
     </Main>
   )

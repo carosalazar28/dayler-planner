@@ -1,5 +1,6 @@
-import { BoardView } from '@/pages/Board'
 import { Routes, Route } from 'react-router-dom'
+
+import { BoardView } from '@/pages/Board'
 
 import * as routes from './routes'
 

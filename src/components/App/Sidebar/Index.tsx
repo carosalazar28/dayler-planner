@@ -28,7 +28,7 @@ function TemporaryDrawer() {
       <AppBarFixed
         open={open}
         handleDrawerOpen={handleDrawerOpen}
-        minWidth={drawerWidth}
+        minwidth={drawerWidth}
       />
       <Drawer
         anchor="left"
@@ -68,7 +68,7 @@ function TemporaryDrawer() {
           </List>
         </Nav>
       </Drawer>
-      <MainPaper minWidth={drawerWidth} open={open} />
+      <MainPaper minwidth={drawerWidth} open={open} />
     </>
   )
 }

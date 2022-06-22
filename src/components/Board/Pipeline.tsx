@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import update from 'immutability-helper'
 
 import { styled } from '@mui/material'
@@ -27,16 +27,22 @@ const mockData = [
 ]
 
 const PipelineContainer = styled('div')(({ theme }) => ({
+  '& > div': {
+    marginBottom: theme.spacing(3),
+  },
+}))
+
+const Pipelines = styled('section')(({ theme }) => ({
   display: 'grid',
-  gridTemplateRows: 'repeat(auto-fill, minmax(48px, 1fr))',
-  gridTemplateColumns: 270,
-  gap: theme.spacing(3),
+  gap: theme.spacing(6),
+  [theme.breakpoints.up('sm')]: {
+    gridTemplateColumns: 'repeat(3, minmax(270px, 1fr))',
+  },
 }))
 
 const ContainerTask = styled('section')(({ theme }) => ({
   display: 'grid',
   gridTemplateRows: 'repeat(auto-fill, minmax(50px, 1fr))',
-  gridTemplateColumns: 270,
   gap: theme.spacing(2),
 }))
 
@@ -58,8 +64,12 @@ function Pipeline() {
     [cards]
   )
 
+  useEffect(() => {
+    console.log('cards')
+  }, [])
+
   return (
-    <section>
+    <Pipelines>
       <PipelineContainer>
         <Title status="INFO" />
         <ContainerTask>
@@ -99,7 +109,7 @@ function Pipeline() {
           ))}
         </ContainerTask>
       </PipelineContainer>
-    </section>
+    </Pipelines>
   )
 }
 
