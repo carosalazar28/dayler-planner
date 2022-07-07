@@ -1,7 +1,11 @@
 import Pipeline from './Pipeline'
 
 function Board() {
-  return <Pipeline />
+  return (
+    <>
+      <Pipeline />
+    </>
+  )
 }
 
 export default Board
