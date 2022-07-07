@@ -1,5 +1,7 @@
-import RenderRoutes from '@/routes/RenderRoutes'
 import { styled } from '@mui/material/styles'
+
+import TaskModal from '../Task/TaskModal'
+import RenderRoutes from '@/routes/RenderRoutes'
 
 interface MainProps {
   minwidth: number
@@ -31,6 +33,7 @@ function MainPaper({ minwidth, open }: MainProps) {
   return (
     <Main open={open} minwidth={minwidth}>
       <RenderRoutes />
+      <TaskModal />
     </Main>
   )
 }

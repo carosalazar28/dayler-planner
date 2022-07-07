@@ -1,5 +1,5 @@
 import MuiCard from '@mui/material/Card'
-import { Typography, CardContent } from '@mui/material'
+import { Typography, CardContent, IconButton } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import AddBoxIcon from '@mui/icons-material/AddBox'
 
@@ -36,7 +36,9 @@ function Title({ status = 'INFO' }: { status: string }) {
           {subtitle[status as keyof typeof subtitle]}
         </Typography>
       </CardContent>
-      <AddBoxIcon color="disabled" fontSize="large" />
+      <IconButton>
+        <AddBoxIcon color="disabled" fontSize="large" />
+      </IconButton>
     </Card>
   )
 }
