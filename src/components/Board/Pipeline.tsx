@@ -1,11 +1,9 @@
-import { useState, useCallback, useEffect } from 'react'
-import update from 'immutability-helper'
+import { useEffect } from 'react'
 
 import { styled } from '@mui/material'
 
-import Item from './PipelineAtoms/Item'
-import Title from './PipelineAtoms/Title'
-import { Item as ItemType } from '../interfaces/Board.interfaces'
+import Title from './Elements/Title'
+import ContainerItems from './Elements/ContainerItems'
 
 const mockData = [
   {
@@ -24,6 +22,14 @@ const mockData = [
     id: 4,
     body: 'loren ipsum4',
   },
+  {
+    id: 5,
+    body: 'loren ipsum5',
+  },
+  {
+    id: 6,
+    body: 'loren ipsum6',
+  },
 ]
 
 const PipelineContainer = styled('div')(({ theme }) => ({
@@ -40,30 +46,7 @@ const Pipelines = styled('section')(({ theme }) => ({
   },
 }))
 
-const ContainerTask = styled('section')(({ theme }) => ({
-  display: 'grid',
-  gridTemplateRows: 'repeat(auto-fill, minmax(50px, 1fr))',
-  gap: theme.spacing(2),
-}))
-
 function Pipeline() {
-  const [cards, setCards] = useState(mockData)
-
-  const movePetListItem = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
-      // Swap places of dragItem and hoverItem in the pets array
-      setCards((prevCards: ItemType[]) =>
-        update(prevCards, {
-          $splice: [
-            [dragIndex, 1],
-            [hoverIndex, 0, prevCards[dragIndex] as ItemType],
-          ],
-        })
-      )
-    },
-    [cards]
-  )
-
   useEffect(() => {
     console.log('cards')
   }, [])
@@ -72,45 +55,15 @@ function Pipeline() {
     <Pipelines>
       <PipelineContainer>
         <Title status="INFO" />
-        <ContainerTask>
-          {cards.map((item, index) => (
-            <Item
-              key={item.id}
-              index={index}
-              {...item}
-              moveListItem={movePetListItem}
-              variant="INFO"
-            />
-          ))}
-        </ContainerTask>
+        <ContainerItems items={mockData} variant="INFO" />
       </PipelineContainer>
       <PipelineContainer>
         <Title status="WARNING" />
-        <ContainerTask>
-          {cards.map((item, index) => (
-            <Item
-              key={item.id}
-              index={index}
-              {...item}
-              moveListItem={movePetListItem}
-              variant="WARNING"
-            />
-          ))}
-        </ContainerTask>
+        <ContainerItems items={mockData} variant="WARNING" />
       </PipelineContainer>
       <PipelineContainer>
         <Title status="SUCCESS" />
-        <ContainerTask>
-          {cards.map((item, index) => (
-            <Item
-              key={item.id}
-              index={index}
-              {...item}
-              moveListItem={movePetListItem}
-              variant="SUCCESS"
-            />
-          ))}
-        </ContainerTask>
+        <ContainerItems items={mockData} variant="SUCCESS" />
       </PipelineContainer>
     </Pipelines>
   )
