@@ -12,6 +12,7 @@ export interface Item {
 export interface ItemProps extends Item {
   index: number
   variant: string
+  onEdit: (item: Item) => void
   moveListItem: (dragIndex: number, hoverIndex: number) => void
 }
 

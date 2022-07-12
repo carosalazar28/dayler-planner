@@ -9,10 +9,11 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 
 import {
+  Item as ItemType,
   CardProps,
   ItemProps,
   DragItem,
-} from '../../interfaces/Board.interfaces'
+} from '@/components/interfaces/Board.interfaces'
 
 const Card = styled(MuiCard)<CardProps>(({ theme, color }) => ({
   borderRadius: theme.spacing(1),
@@ -29,10 +30,16 @@ const Card = styled(MuiCard)<CardProps>(({ theme, color }) => ({
   },
 }))
 
-const Item = ({ body, index, moveListItem, variant = 'INFO' }: ItemProps) => {
+const Item = ({
+  body,
+  index,
+  moveListItem,
+  variant = 'INFO',
+  onEdit,
+}: ItemProps) => {
   const ref = useRef<HTMLDivElement>(null)
 
-  const handleEdit = () => console.log('edit')
+  const handleEdit = (item: ItemType) => onEdit(item)
 
   const handleDelete = () => console.log('delete')
 
@@ -113,7 +120,10 @@ const Item = ({ body, index, moveListItem, variant = 'INFO' }: ItemProps) => {
       <CardContent>
         <Typography variant="body2">{body}</Typography>
         <div>
-          <IconButton color="primary" onClick={handleEdit}>
+          <IconButton
+            color="primary"
+            onClick={() => handleEdit({ body, id: index })}
+          >
             <EditIcon />
           </IconButton>
           <IconButton color="primary" onClick={handleDelete}>

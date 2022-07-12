@@ -16,8 +16,10 @@ const ContainerTask = styled('section')(({ theme }) => ({
 function ContainerItems({
   items,
   variant = 'SUCCESS',
+  handleEdit,
 }: {
   items: ItemType[]
+  handleEdit: (item: ItemType) => void
   variant?: 'SUCCESS' | 'INFO' | 'WARNING'
 }) {
   const [cards, setCards] = useState(items)
@@ -47,6 +49,7 @@ function ContainerItems({
             {...item}
             moveListItem={movePetListItem}
             variant={variant}
+            onEdit={handleEdit}
           />
         ))}
       </ContainerTask>

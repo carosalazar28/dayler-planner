@@ -61,15 +61,27 @@ function Pipeline() {
       <Pipelines>
         <PipelineContainer>
           <Title status="INFO" handleClick={handleOpenModal} />
-          <ContainerItems items={mockData} variant="INFO" />
+          <ContainerItems
+            items={mockData}
+            variant="INFO"
+            handleEdit={handleOpenModal}
+          />
         </PipelineContainer>
         <PipelineContainer>
           <Title status="WARNING" handleClick={handleOpenModal} />
-          <ContainerItems items={mockData} variant="WARNING" />
+          <ContainerItems
+            items={mockData}
+            variant="WARNING"
+            handleEdit={handleOpenModal}
+          />
         </PipelineContainer>
         <PipelineContainer>
           <Title status="SUCCESS" handleClick={handleOpenModal} />
-          <ContainerItems items={mockData} variant="SUCCESS" />
+          <ContainerItems
+            items={mockData}
+            variant="SUCCESS"
+            handleEdit={handleOpenModal}
+          />
         </PipelineContainer>
       </Pipelines>
       <ModalTask handleCloseModal={handleCloseModal} open={open} />
