@@ -12,5 +12,6 @@ export interface InputProps {
   placeholder?: string
   type?: string
   options?: OptionProps[]
+  multiline?: boolean
   // onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }

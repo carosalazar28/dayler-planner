@@ -16,6 +16,8 @@ const Container = styled('section')(({ theme }) => ({
   width: '100%',
   padding: theme.spacing(3.25),
   boxSizing: 'border-box',
+  overflowY: 'scroll',
+  height: 350,
 }))
 
 function FormInputs() {
@@ -30,6 +32,7 @@ function FormInputs() {
         name="description"
         label="Descripción"
         placeholder="Escribe la descripción de la tarea"
+        multiline
       />
       <CustomInput
         name="pipeline"

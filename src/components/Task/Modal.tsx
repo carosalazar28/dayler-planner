@@ -1,12 +1,22 @@
 import CloseIcon from '@mui/icons-material/Close'
 import { styled } from '@mui/material/styles'
-import { Box, Button, IconButton, Dialog } from '@mui/material'
+import { Box, Button, IconButton } from '@mui/material'
 
 import FormInputs from './FormInputs'
 
+const ModalContainer = styled('div')(({ theme }) => ({
+  position: 'absolute',
+  backgroundColor: theme.palette.background.paper,
+  zIndex: 1000,
+  bottom: theme.spacing(7.5),
+  right: theme.spacing(3.125),
+  borderRadius: theme.spacing(1.25),
+  boxShadow: `4px 2px 5px 2px ${theme.palette.grey[500]}`,
+}))
+
 const BoxContainer = styled(Box)(({ theme }) => ({
   width: 600,
-  height: 500,
+  height: 380,
   padding: theme.spacing(4.375, 3.5),
   display: 'flex',
   flexDirection: 'column',
@@ -24,8 +34,8 @@ interface Props {
 }
 
 function ModalTask({ handleCloseModal, open }: Props) {
-  return (
-    <Dialog open={open} onClose={handleCloseModal} maxWidth="md">
+  return open ? (
+    <ModalContainer>
       <BoxContainer>
         <section style={{ alignSelf: 'flex-end' }}>
           <IconButton onClick={handleCloseModal}>
@@ -37,8 +47,8 @@ function ModalTask({ handleCloseModal, open }: Props) {
           <Button variant="contained">Guardar</Button>
         </ActionContainer>
       </BoxContainer>
-    </Dialog>
-  )
+    </ModalContainer>
+  ) : null
 }
 
 export default ModalTask
