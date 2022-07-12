@@ -23,7 +23,12 @@ const Card = styled(MuiCard)<CardProps>(({ theme, color }) => ({
   },
 }))
 
-function Title({ status = 'INFO' }: { status: string }) {
+interface Props {
+  status: string
+  handleClick: () => void
+}
+
+function Title({ status = 'INFO', handleClick }: Props) {
   const subtitle: object = {
     INFO: 'TO DO',
     WARNING: 'DESARROLLANDO',
@@ -36,7 +41,7 @@ function Title({ status = 'INFO' }: { status: string }) {
           {subtitle[status as keyof typeof subtitle]}
         </Typography>
       </CardContent>
-      <IconButton>
+      <IconButton onClick={handleClick}>
         <AddBoxIcon color="disabled" fontSize="large" />
       </IconButton>
     </Card>
