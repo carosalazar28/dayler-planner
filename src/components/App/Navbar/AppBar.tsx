@@ -3,7 +3,7 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar'
 import { styled } from '@mui/material/styles'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import { Typography } from '@mui/material'
+import BreadCrumbs from './BreadCrumbs'
 
 interface AppBarProps extends MuiAppBarProps {
   minwidth: number
@@ -42,9 +42,7 @@ function AppBarFixed({ open, handleDrawerOpen, minwidth }: AppBarProps) {
         >
           <MenuIcon color="secondary" />
         </IconButton>
-        <Typography color="primary" noWrap>
-          contenido
-        </Typography>
+        <BreadCrumbs />
       </Toolbar>
     </AppBar>
   )
