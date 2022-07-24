@@ -1,9 +1,9 @@
 import { styled } from '@mui/material/styles'
 import { Box, Button } from '@mui/material'
 
-import CloseModal from './CloseModal'
+import CloseModal from './Elements/CloseModal'
 import FormInputs from '../FormInputs'
-import ActionsContainer from './ActionsContainer'
+import ActionsContainer from './Elements/ActionsContainer'
 
 const ModalContainer = styled('div')(({ theme }) => ({
   position: 'absolute',

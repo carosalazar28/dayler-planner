@@ -1,8 +1,8 @@
 import { styled } from '@mui/material/styles'
 import { Button, Dialog, Typography } from '@mui/material'
 
-import CloseModal from './CloseModal'
-import ActionsContainer from './ActionsContainer'
+import CloseModal from './Elements/CloseModal'
+import ActionsContainer from './Elements/ActionsContainer'
 
 const Container = styled('div')(({ theme }) => ({
   display: 'flex',
