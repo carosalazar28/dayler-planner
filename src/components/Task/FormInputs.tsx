@@ -1,4 +1,6 @@
-import { styled } from '@mui/material'
+import { styled } from '@mui/material/styles'
+
+import { Typography } from '@mui/material'
 
 import CustomInput from './CustomInput/Input'
 import { OptionProps } from '../interfaces/CustomInput.interfaces'
@@ -14,7 +16,7 @@ const Container = styled('section')(({ theme }) => ({
   flexDirection: 'column',
   gap: theme.spacing(3),
   width: '100%',
-  padding: theme.spacing(3.25),
+  padding: theme.spacing(0, 3.25),
   boxSizing: 'border-box',
   overflowY: 'scroll',
   height: 350,
@@ -23,6 +25,8 @@ const Container = styled('section')(({ theme }) => ({
 function FormInputs() {
   return (
     <Container>
+      <Typography variant="h6">Crear una nueva tarea</Typography>
+
       <CustomInput
         name="name"
         label="Nombre"

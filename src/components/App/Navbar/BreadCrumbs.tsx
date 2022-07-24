@@ -1,4 +1,4 @@
-import { useLocation, NavLink } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import Breadcrumbs from '@mui/material/Breadcrumbs'
 import MUILink from '@mui/material/Link'
@@ -19,12 +19,7 @@ function BreadCrumbs() {
   const PATH = pathname.split('/')[1].toUpperCase()
   return (
     <Breadcrumbs aria-label="breadcrumb">
-      <MUILink
-        underline="hover"
-        color="inherit"
-        href={pathname}
-        // component={NavLink}
-      >
+      <MUILink underline="hover" color="inherit" href={pathname}>
         {breadCrumbsText[PATH]}
       </MUILink>
     </Breadcrumbs>
