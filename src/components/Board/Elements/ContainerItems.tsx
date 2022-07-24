@@ -17,9 +17,11 @@ function ContainerItems({
   items,
   variant = 'SUCCESS',
   handleEdit,
+  handleDelete,
 }: {
   items: ItemType[]
   handleEdit: (item: ItemType) => void
+  handleDelete: (item: ItemType) => void
   variant?: 'SUCCESS' | 'INFO' | 'WARNING'
 }) {
   const [cards, setCards] = useState(items)
@@ -50,6 +52,7 @@ function ContainerItems({
             moveListItem={movePetListItem}
             variant={variant}
             onEdit={handleEdit}
+            onDelete={handleDelete}
           />
         ))}
       </ContainerTask>

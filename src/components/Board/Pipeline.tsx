@@ -4,8 +4,9 @@ import { styled } from '@mui/material'
 
 import useNewTask from '@/utils/hooks/useNewTask'
 
-import ModalTask from '../Task/Modal'
 import Title from './Elements/Title'
+import ModalTask from '../Task/Modals/Task'
+import ModalDelete from '../Task/Modals/Delete'
 import ContainerItems from './Elements/ContainerItems'
 
 const mockData = [
@@ -50,7 +51,14 @@ const Pipelines = styled('section')(({ theme }) => ({
 }))
 
 function Pipeline() {
-  const { handleOpenModal, handleCloseModal, open } = useNewTask()
+  const {
+    handleOpenModal,
+    handleCloseModal,
+    open,
+    handleOpenDeleteModal,
+    handleCloseDeleteModal,
+    openDeleteModal,
+  } = useNewTask()
 
   useEffect(() => {
     console.log('cards')
@@ -65,6 +73,7 @@ function Pipeline() {
             items={mockData}
             variant="INFO"
             handleEdit={handleOpenModal}
+            handleDelete={handleOpenDeleteModal}
           />
         </PipelineContainer>
         <PipelineContainer>
@@ -73,6 +82,7 @@ function Pipeline() {
             items={mockData}
             variant="WARNING"
             handleEdit={handleOpenModal}
+            handleDelete={handleOpenDeleteModal}
           />
         </PipelineContainer>
         <PipelineContainer>
@@ -81,10 +91,15 @@ function Pipeline() {
             items={mockData}
             variant="SUCCESS"
             handleEdit={handleOpenModal}
+            handleDelete={handleOpenDeleteModal}
           />
         </PipelineContainer>
       </Pipelines>
       <ModalTask handleCloseModal={handleCloseModal} open={open} />
+      <ModalDelete
+        handleClose={handleCloseDeleteModal}
+        open={openDeleteModal}
+      />
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { Button } from '@mui/material'
 
 import useNewTask from '@/utils/hooks/useNewTask'
-import ModalTask from './Modal'
+import ModalTask from './Modals/Task'
 
 function TaskModal() {
   const { handleOpenModal, handleCloseModal, open } = useNewTask()
