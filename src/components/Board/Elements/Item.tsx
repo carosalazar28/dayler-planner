@@ -3,10 +3,8 @@ import type { Identifier, XYCoord } from 'dnd-core'
 import { useDrag, useDrop } from 'react-dnd'
 
 import MuiCard from '@mui/material/Card'
-import { CardContent, IconButton, Typography } from '@mui/material'
+import { CardContent, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import EditIcon from '@mui/icons-material/Edit'
-import DeleteIcon from '@mui/icons-material/Delete'
 
 import {
   Item as ItemType,
@@ -14,6 +12,8 @@ import {
   ItemProps,
   DragItem,
 } from '@/components/interfaces/Board.interfaces'
+import Edit from '@/components/UI/Buttons/Edit'
+import Delete from '@/components/UI/Buttons/Delete'
 
 const Card = styled(MuiCard)<CardProps>(({ theme, color }) => ({
   borderRadius: theme.spacing(1),
@@ -119,18 +119,8 @@ const Item = ({
       <CardContent>
         <Typography variant="body2">{body}</Typography>
         <div>
-          <IconButton
-            color="primary"
-            onClick={() => handleEdit({ body, id: index })}
-          >
-            <EditIcon />
-          </IconButton>
-          <IconButton
-            color="primary"
-            onClick={() => handleDelete({ body, id: index })}
-          >
-            <DeleteIcon />
-          </IconButton>
+          <Edit handleEdit={handleEdit} body={body} index={index} />
+          <Delete handleDelete={handleDelete} body={body} index={index} />
         </div>
       </CardContent>
     </Card>
