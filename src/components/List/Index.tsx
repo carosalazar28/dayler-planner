@@ -12,11 +12,18 @@ const ContainerTask = styled('section')(({ theme }) => ({
 }))
 
 function PaperList() {
+  const handleEdit = () => console.log('here')
+  const handleDelete = () => console.log('here')
   return (
     <Paper>
       <Filter />
       <ContainerTask>
-        <ContainerItem title="TODO" task={mockData} />
+        <ContainerItem 
+          title="TODO" 
+          task={mockData} 
+          handleEdit={handleEdit} 
+          handleDelete={handleDelete}
+        />
       </ContainerTask>
     </Paper>
   )
